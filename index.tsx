@@ -1,4 +1,6 @@
 import { Navigation } from 'react-native-navigation';
+import Icon from 'react-native-vector-icons/MaterialIcons';
+
 import { Favorites as FavoritesScreen, Films as FilmsScreen } from './src/screens';
 
 export enum NavigationScreen {
@@ -27,7 +29,11 @@ Navigation.events().registerAppLaunchedListener(() => {
                                 },
                             ],
                             options: {
-                                bottomTab: {},
+                                bottomTab: {
+                                    icon: Icon.getImageSourceSync('movie', 30, '#888'),
+                                    selectedIconColor: 'black',
+                                    text: 'Фильмы',
+                                },
                             },
                         },
                     },
@@ -42,7 +48,11 @@ Navigation.events().registerAppLaunchedListener(() => {
                                 },
                             ],
                             options: {
-                                bottomTab: {},
+                                bottomTab: {
+                                    icon: Icon.getImageSourceSync('star-outline', 30, '#888'),
+                                    selectedIconColor: 'black',
+                                    text: 'Избранное',
+                                },
                             },
                         },
                     },

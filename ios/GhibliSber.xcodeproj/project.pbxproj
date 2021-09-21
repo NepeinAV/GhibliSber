@@ -40,6 +40,7 @@
 		6423831EA8574132BED9D8CC /* libPods-GhibliSber.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GhibliSber.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C97AB639B58BBB4B15BBE30 /* Pods-GhibliSber-GhibliSberTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GhibliSber-GhibliSberTests.debug.xcconfig"; path = "Target Support Files/Pods-GhibliSber-GhibliSberTests/Pods-GhibliSber-GhibliSberTests.debug.xcconfig"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = GhibliSber/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		96E0039926FA699E00509674 /* MaterialIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = MaterialIcons.ttf; path = "../../../node_modules/react-native-vector-icons/Fonts/MaterialIcons.ttf"; sourceTree = "<group>"; };
 		ABFE59519B596E51CEFDCCC0 /* libPods-GhibliSber-GhibliSberTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GhibliSber-GhibliSberTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0A881CF5CF3F2B244570E2A /* Pods-GhibliSber.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GhibliSber.debug.xcconfig"; path = "Target Support Files/Pods-GhibliSber/Pods-GhibliSber.debug.xcconfig"; sourceTree = "<group>"; };
 		D00AAFFCFCFDA5787532823F /* Pods-GhibliSber.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GhibliSber.release.xcconfig"; path = "Target Support Files/Pods-GhibliSber/Pods-GhibliSber.release.xcconfig"; sourceTree = "<group>"; };
@@ -116,6 +117,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				96E0039726FA694300509674 /* Resources */,
 				13B07FAE1A68108700A75B9A /* GhibliSber */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* GhibliSberTests */,
@@ -137,6 +139,22 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		96E0039726FA694300509674 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				96E0039826FA695100509674 /* Fonts */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		96E0039826FA695100509674 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				96E0039926FA699E00509674 /* MaterialIcons.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		E233CBF5F47BEE60B243DCF8 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -145,7 +163,6 @@
 				6C97AB639B58BBB4B15BBE30 /* Pods-GhibliSber-GhibliSberTests.debug.xcconfig */,
 				1D0AE47A65C8663E3B452821 /* Pods-GhibliSber-GhibliSberTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
