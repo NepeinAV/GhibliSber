@@ -1,7 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
 
+import filmsReducer from './slices/films';
+
 export const store = configureStore({
-    reducer: {},
+    reducer: {
+        films: filmsReducer,
+    },
 });
 
 export type RootState = ReturnType<typeof store.getState>;
