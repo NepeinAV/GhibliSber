@@ -12,6 +12,18 @@ Navigation.registerComponent(NavigationScreen.Films, () => FilmsScreen);
 
 Navigation.registerComponent(NavigationScreen.Favorites, () => FavoritesScreen);
 
+Navigation.setDefaultOptions({
+    topBar: {
+        title: {
+            color: 'black',
+        },
+    },
+    bottomTab: {
+        iconColor: '#888',
+        selectedIconColor: 'black',
+    },
+});
+
 Navigation.events().registerAppLaunchedListener(() => {
     Navigation.setRoot({
         root: {
@@ -23,15 +35,20 @@ Navigation.events().registerAppLaunchedListener(() => {
                             children: [
                                 {
                                     component: {
-                                        id: NavigationScreen.Films,
                                         name: NavigationScreen.Films,
+                                        options: {
+                                            topBar: {
+                                                title: {
+                                                    text: 'Фильмы',
+                                                },
+                                            },
+                                        },
                                     },
                                 },
                             ],
                             options: {
                                 bottomTab: {
-                                    icon: Icon.getImageSourceSync('movie', 30, '#888'),
-                                    selectedIconColor: 'black',
+                                    icon: Icon.getImageSourceSync('movie', 30),
                                     text: 'Фильмы',
                                 },
                             },
@@ -42,15 +59,20 @@ Navigation.events().registerAppLaunchedListener(() => {
                             children: [
                                 {
                                     component: {
-                                        id: NavigationScreen.Favorites,
                                         name: NavigationScreen.Favorites,
+                                        options: {
+                                            topBar: {
+                                                title: {
+                                                    text: 'Избранное',
+                                                },
+                                            },
+                                        },
                                     },
                                 },
                             ],
                             options: {
                                 bottomTab: {
-                                    icon: Icon.getImageSourceSync('star-outline', 30, '#888'),
-                                    selectedIconColor: 'black',
+                                    icon: Icon.getImageSourceSync('star-outline', 30),
                                     text: 'Избранное',
                                 },
                             },
