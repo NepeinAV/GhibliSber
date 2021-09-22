@@ -36,13 +36,7 @@ Navigation.events().registerAppLaunchedListener(() => {
                                 {
                                     component: {
                                         name: NavigationScreen.Films,
-                                        options: {
-                                            topBar: {
-                                                title: {
-                                                    text: 'Фильмы',
-                                                },
-                                            },
-                                        },
+                                        options: { topBar: { title: { text: 'Фильмы' } } },
                                     },
                                 },
                             ],
@@ -60,13 +54,7 @@ Navigation.events().registerAppLaunchedListener(() => {
                                 {
                                     component: {
                                         name: NavigationScreen.Favorites,
-                                        options: {
-                                            topBar: {
-                                                title: {
-                                                    text: 'Избранное',
-                                                },
-                                            },
-                                        },
+                                        options: { topBar: { title: { text: 'Избранное' } } },
                                     },
                                 },
                             ],

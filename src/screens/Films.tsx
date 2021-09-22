@@ -1,10 +1,17 @@
 import React from 'react';
-import { Text } from 'react-native';
+
+import { ThemeProvider } from 'styled-components';
+import Card from '../components/Card';
 
 import withReduxProvider from '../store/withReduxProvider';
+import { theme } from '../theme';
 
 const Films = () => {
-    return <Text>Films</Text>;
+    return (
+        <ThemeProvider theme={theme}>
+            <Card />
+        </ThemeProvider>
+    );
 };
 
 export default withReduxProvider(Films);
