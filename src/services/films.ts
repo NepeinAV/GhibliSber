@@ -10,11 +10,20 @@ export type Film = {
     userScore: string;
 };
 
+type FilmResponse = {
+    id: string;
+    title: string;
+    release_date: string;
+    description: string;
+    rt_score: string;
+};
+
 const filmsApi = ghibliApi.injectEndpoints({
     endpoints: builder => ({
         getFilms: builder.query<Film[], void>({
             query: () => 'films',
-            transformResponse: (response: Film[]) => camelcaseKeys(response),
+            transformResponse: (response: FilmResponse[]) =>
+                camelcaseKeys(response.map(item => ({ ...item, userScore: item.rt_score }))),
         }),
     }),
     overrideExisting: true,

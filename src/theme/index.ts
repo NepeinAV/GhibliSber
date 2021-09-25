@@ -3,7 +3,7 @@ import { css, DefaultTheme } from 'styled-components/native';
 const primaryShadow = css`
     shadow-color: black;
     shadow-radius: 5px;
-    shadow-opacity: 0.05;
+    shadow-opacity: 0.1;
     shadow-offset: 0 2px;
     elevation: 4;
 `;
@@ -11,8 +11,12 @@ const primaryShadow = css`
 const theme: DefaultTheme = {
     borderRadius: 10,
     colors: {
-        primary: 'blue',
-        secondary: 'white',
+        primary: '#222',
+        secondary: '#aaa',
+        background: 'white',
+        surface: 'white',
+        rating: 'orange',
+        text: '#222',
     },
     indents: {
         padding: 16,
