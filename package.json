@@ -11,11 +11,14 @@
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.6.1",
+    "camelcase-keys": "^7.0.0",
     "react": "17.0.2",
     "react-native": "0.65.1",
+    "react-native-flipper": "^0.111.0",
     "react-native-navigation": "^7.21.0",
     "react-native-vector-icons": "^8.1.0",
     "react-redux": "^7.2.5",
+    "redux-flipper": "^2.0.1",
     "styled-components": "^5.3.1"
   },
   "devDependencies": {
