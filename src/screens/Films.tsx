@@ -1,15 +1,21 @@
 import React, { useCallback } from 'react';
-import { FlatList, ListRenderItemInfo, Text, View } from 'react-native';
+import { FlatList, ListRenderItemInfo } from 'react-native';
 
 import { compose } from '@reduxjs/toolkit';
-import { useTheme } from 'styled-components/native';
+import styled, { useTheme } from 'styled-components/native';
 
 import Card from '../ui/Card';
 import Pressable from '../ui/Pressable';
+import Box from '../ui/Box';
+import Typography from '../ui/Typography';
 
 import withReduxProvider from '../store/withReduxProvider';
 import withThemeProvider from '../theme/withThemeProvider';
 import { Film, useGetFilmsQuery } from '../services/films';
+
+const ItemSeparator = styled(Box)`
+    height: ${props => props.theme.indents.margin / 2}px;
+`;
 
 const Films = () => {
     const { data = [] } = useGetFilmsQuery();
@@ -24,7 +30,8 @@ const Films = () => {
                 }}
             >
                 <Card>
-                    <Text>{item.item.title}</Text>
+                    <Typography type="title">{item.item.title}</Typography>
+                    <Typography>{item.item.description}</Typography>
                 </Card>
             </Pressable>
         ),
@@ -36,7 +43,7 @@ const Films = () => {
             data={data}
             renderItem={renderItem}
             contentContainerStyle={{ padding: theme.indents.padding }}
-            ItemSeparatorComponent={() => <View style={{ height: theme.indents.margin / 2 }} />}
+            ItemSeparatorComponent={() => <ItemSeparator />}
         />
     );
 };
