@@ -1,10 +1,13 @@
 import React, { FC } from 'react';
-import { View, ViewProps } from 'react-native';
+import { ViewProps } from 'react-native';
+import styled from 'styled-components/native';
 
 export type BoxProps = ViewProps;
 
+const StyledView = styled.View``;
+
 const Box: FC<BoxProps> = props => {
-    return <View {...props} />;
+    return <StyledView {...props} />;
 };
 
 export default Box;

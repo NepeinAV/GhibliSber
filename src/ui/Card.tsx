@@ -12,7 +12,7 @@ const CardContainer: FC<CardProps> = ({ children, ...other }) => {
 
 const Card = styled(CardContainer)`
     border-radius: ${props => props.theme.borderRadius}px;
-    background-color: ${props => props.theme.colors.secondary};
+    background-color: ${props => props.theme.colors.surface};
     ${props => props.theme.shadows.primary}
     padding: ${props => props.theme.indents.padding}px;
 `;

@@ -12,6 +12,7 @@
   "dependencies": {
     "@reduxjs/toolkit": "^1.6.1",
     "camelcase-keys": "^7.0.0",
+    "color": "^4.0.1",
     "react": "17.0.2",
     "react-native": "0.65.1",
     "react-native-flipper": "^0.111.0",
@@ -25,6 +26,7 @@
     "@babel/core": "^7.12.9",
     "@babel/runtime": "^7.12.5",
     "@react-native-community/eslint-config": "^2.0.0",
+    "@types/color": "^3.0.2",
     "@types/jest": "^26.0.23",
     "@types/react-native": "^0.65.0",
     "@types/react-native-vector-icons": "^6.4.8",
