@@ -1,17 +1,44 @@
-import React from 'react';
+import React, { useCallback } from 'react';
+import { FlatList, ListRenderItemInfo, Text, View } from 'react-native';
 
-import { ThemeProvider } from 'styled-components';
-import Card from '../components/Card';
+import { compose } from '@reduxjs/toolkit';
+import { useTheme } from 'styled-components/native';
+
+import Card from '../ui/Card';
+import Pressable from '../ui/Pressable';
 
 import withReduxProvider from '../store/withReduxProvider';
-import { theme } from '../theme';
+import withThemeProvider from '../theme/withThemeProvider';
+import { Film, useGetFilmsQuery } from '../services/films';
 
 const Films = () => {
+    const { data = [] } = useGetFilmsQuery();
+
+    const theme = useTheme();
+
+    const renderItem = useCallback(
+        (item: ListRenderItemInfo<Film>) => (
+            <Pressable
+                onPress={() => {
+                    console.log(item.item.id);
+                }}
+            >
+                <Card>
+                    <Text>{item.item.title}</Text>
+                </Card>
+            </Pressable>
+        ),
+        [],
+    );
+
     return (
-        <ThemeProvider theme={theme}>
-            <Card />
-        </ThemeProvider>
+        <FlatList
+            data={data}
+            renderItem={renderItem}
+            contentContainerStyle={{ padding: theme.indents.padding }}
+            ItemSeparatorComponent={() => <View style={{ height: theme.indents.margin / 2 }} />}
+        />
     );
 };
 
-export default withReduxProvider(Films);
+export default compose(withReduxProvider, withThemeProvider)(Films);

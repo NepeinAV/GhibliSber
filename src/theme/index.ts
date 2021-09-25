@@ -1,9 +1,8 @@
-import { css } from 'styled-components/native';
-import { DefaultTheme } from 'styled-components/native';
+import { css, DefaultTheme } from 'styled-components/native';
 
 const primaryShadow = css`
     shadow-color: black;
-    shadow-radius: 8px;
+    shadow-radius: 5px;
     shadow-opacity: 0.05;
     shadow-offset: 0 2px;
     elevation: 4;
