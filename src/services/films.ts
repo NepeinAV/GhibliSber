@@ -8,6 +8,9 @@ export type Film = {
     releaseDate: string;
     description: string;
     userScore: string;
+    director: string;
+    producer: string;
+    runningTime: string;
 };
 
 type FilmResponse = {
@@ -16,6 +19,9 @@ type FilmResponse = {
     release_date: string;
     description: string;
     rt_score: string;
+    director: string;
+    producer: string;
+    running_time: string;
 };
 
 export const filmsApi = ghibliApi.injectEndpoints({

@@ -14,7 +14,7 @@ const Backdrop: FC<BackdropProps> = ({ bottomSheetAnimatedNode, isSheetOpen }) =
             pointerEvents={isSheetOpen ? 'auto' : 'none'}
             style={[
                 {
-                    backgroundColor: 'rgba(0, 0, 0, 0.1)',
+                    backgroundColor: 'rgba(0, 0, 0, 0.2)',
                     opacity: Animated.interpolate(bottomSheetAnimatedNode, {
                         inputRange: [0, 1],
                         outputRange: [1, 0],

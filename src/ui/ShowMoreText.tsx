@@ -20,6 +20,7 @@ const ShowMoreText: FC<ShowMoreTextProps> = ({ numOfLines, renderShowMoreButton,
             <ScrollView
                 css={css`
                     height: 0;
+                    max-height: 0;
                 `}
             >
                 <Typography onTextLayout={handleText}>{children}</Typography>
