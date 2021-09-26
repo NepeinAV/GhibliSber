@@ -1,3 +1,6 @@
+import 'react-native-gesture-handler';
+import { gestureHandlerRootHOC } from 'react-native-gesture-handler';
+
 import { Navigation } from 'react-native-navigation';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
@@ -8,9 +11,8 @@ export enum NavigationScreen {
     Favorites = 'FAVORITES_SCREEN',
 }
 
-Navigation.registerComponent(NavigationScreen.Films, () => FilmsScreen);
-
-Navigation.registerComponent(NavigationScreen.Favorites, () => FavoritesScreen);
+Navigation.registerComponent(NavigationScreen.Films, () => gestureHandlerRootHOC(FilmsScreen));
+Navigation.registerComponent(NavigationScreen.Favorites, () => gestureHandlerRootHOC(FavoritesScreen));
 
 Navigation.setDefaultOptions({
     topBar: {
