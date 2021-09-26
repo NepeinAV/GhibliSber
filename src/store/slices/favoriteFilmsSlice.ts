@@ -2,7 +2,7 @@ import { createSelector, createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 import { RootState } from '..';
 
-import { Film, filmsApi } from '../../services/films';
+import { Film, selectFilms } from '../../services/films';
 
 type FavoriteFilmsState = {
     favoriteFilmsIds: Record<string, true>;
@@ -24,9 +24,6 @@ const favoriteFilmsSlice = createSlice({
         },
     },
 });
-
-const selectFilmsResult = filmsApi.endpoints.getFilms.select();
-const selectFilms = createSelector(selectFilmsResult, state => state.data);
 
 export const selectFavoriteFilms = createSelector<
     RootState,

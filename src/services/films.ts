@@ -1,4 +1,5 @@
 import camelcaseKeys from 'camelcase-keys';
+import { createSelector } from '@reduxjs/toolkit';
 
 import { ghibliApi } from '../store/api';
 
@@ -34,5 +35,9 @@ export const filmsApi = ghibliApi.injectEndpoints({
     }),
     overrideExisting: true,
 });
+
+const selectFilmsResult = filmsApi.endpoints.getFilms.select();
+export const selectFilms = createSelector(selectFilmsResult, state => state.data);
+export const selectFilmsLoadingState = createSelector(selectFilmsResult, state => state.isLoading);
 
 export const { useGetFilmsQuery } = filmsApi;

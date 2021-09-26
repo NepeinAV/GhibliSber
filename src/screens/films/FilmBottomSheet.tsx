@@ -1,4 +1,4 @@
-import React, { createContext, FC, useCallback, useState } from 'react';
+import React, { createContext, FC, useCallback, useMemo, useState } from 'react';
 import BottomSheetBehavior from 'reanimated-bottom-sheet';
 
 import { css } from 'styled-components/native';
@@ -38,11 +38,11 @@ const FilmBottomSheet: FC = ({ children }) => {
         sheetRef.current?.snapTo(1);
     }, []);
 
+    const contextValue = useMemo(() => ({ openBottomSheet, closeBottomSheet }), [closeBottomSheet, openBottomSheet]);
+
     return (
         <>
-            <FilmBottomSheetContext.Provider value={{ openBottomSheet, closeBottomSheet }}>
-                {children}
-            </FilmBottomSheetContext.Provider>
+            <FilmBottomSheetContext.Provider value={contextValue}>{children}</FilmBottomSheetContext.Provider>
 
             {selectedFilm !== null && (
                 <BottomSheet
