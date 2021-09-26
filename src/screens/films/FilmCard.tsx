@@ -12,6 +12,9 @@ import Pressable from '../../ui/Pressable';
 import Spacer from '../../ui/Spacer';
 import Typography from '../../ui/Typography';
 import ShowMoreText from '../../ui/ShowMoreText';
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState } from '../../store';
+import { addFavoriteFilm, removeFavoriteFilm } from '../../store/slices/favoriteFilmsSlice';
 
 type FilmCardProps = {
     film: Film;
@@ -26,6 +29,10 @@ const RatingIcon = styled(Icon)`
     color: ${props => props.theme.colors.rating};
 `;
 
+const FavoriteIcon = styled(Icon)`
+    font-size: 22px;
+`;
+
 const FilmMetaContainer = styled(Box)`
     flex-direction: row;
     align-items: center;
@@ -33,6 +40,8 @@ const FilmMetaContainer = styled(Box)`
 
 const FilmCard: FC<FilmCardProps> = ({ film }) => {
     const [isTextExpanded, setTextExpanded] = useState(false);
+    const isFavoriteFilm = useSelector<RootState>(state => state.favoriteFilms.favoriteFilmsIds[film.id]);
+    const dispatch = useDispatch();
 
     const theme = useTheme();
 
@@ -78,6 +87,42 @@ const FilmCard: FC<FilmCardProps> = ({ film }) => {
                 >
                     {film.description}
                 </ShowMoreText>
+
+                <Spacer height={theme.indents.margin / 2} />
+
+                <Box
+                    css={css`
+                        flex-direction: row;
+                    `}
+                >
+                    <Pressable
+                        css={css`
+                            background-color: ${props => props.theme.colors.secondary};
+                            padding: 4px 8px;
+                            border-radius: ${props => props.theme.borderRadius}px;
+                            align-self: flex-start;
+                        `}
+                        onPress={() => {
+                            isFavoriteFilm ? dispatch(removeFavoriteFilm(film.id)) : dispatch(addFavoriteFilm(film.id));
+                        }}
+                    >
+                        {isFavoriteFilm ? (
+                            <FavoriteIcon
+                                name="favorite"
+                                css={css`
+                                    color: red;
+                                `}
+                            />
+                        ) : (
+                            <FavoriteIcon
+                                name="favorite-border"
+                                css={css`
+                                    color: ${props => props.theme.colors.primary};
+                                `}
+                            />
+                        )}
+                    </Pressable>
+                </Box>
             </Card>
         </Pressable>
     );

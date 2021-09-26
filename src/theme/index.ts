@@ -12,7 +12,7 @@ const theme: DefaultTheme = {
     borderRadius: 10,
     colors: {
         primary: '#222',
-        secondary: '#aaa',
+        secondary: '#ddd',
         background: 'white',
         surface: 'white',
         rating: 'orange',
