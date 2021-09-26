@@ -1,6 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit';
 
 import { ghibliApi } from './api';
+import favoriteFilmsSlice from './slices/favoriteFilmsSlice';
 
 const middlewares = [ghibliApi.middleware];
 
@@ -12,6 +13,7 @@ if (__DEV__) {
 export const store = configureStore({
     reducer: {
         [ghibliApi.reducerPath]: ghibliApi.reducer,
+        [favoriteFilmsSlice.name]: favoriteFilmsSlice.reducer,
     },
     middleware: getDefaultMiddleware => getDefaultMiddleware().concat(middlewares),
 });

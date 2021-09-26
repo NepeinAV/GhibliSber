@@ -18,7 +18,7 @@ type FilmResponse = {
     rt_score: string;
 };
 
-const filmsApi = ghibliApi.injectEndpoints({
+export const filmsApi = ghibliApi.injectEndpoints({
     endpoints: builder => ({
         getFilms: builder.query<Film[], void>({
             query: () => 'films',
