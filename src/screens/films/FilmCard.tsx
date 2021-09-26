@@ -1,4 +1,4 @@
-import React, { FC, memo, useState } from 'react';
+import React, { FC, memo, useContext, useState } from 'react';
 
 import color from 'color';
 import Icon from 'react-native-vector-icons/MaterialIcons';
@@ -13,6 +13,7 @@ import Spacer from '../../ui/Spacer';
 import Typography from '../../ui/Typography';
 import ShowMoreText from '../../ui/ShowMoreText';
 import FavoriteButton from './FavoriteButton';
+import { FilmBottomSheetContext } from './FilmBottomSheet';
 
 type FilmCardProps = {
     film: Film;
@@ -35,6 +36,8 @@ const FilmMetaContainer = styled(Box)`
 const FilmCard: FC<FilmCardProps> = ({ film }) => {
     const [isTextExpanded, setTextExpanded] = useState(false);
 
+    const { openBottomSheet } = useContext(FilmBottomSheetContext);
+
     const theme = useTheme();
 
     const renderShowMoreButton = () =>
@@ -54,7 +57,7 @@ const FilmCard: FC<FilmCardProps> = ({ film }) => {
         );
 
     return (
-        <Pressable>
+        <Pressable onPress={() => openBottomSheet(film)}>
             <Card>
                 <Typography type="title">{film.title}</Typography>
 
