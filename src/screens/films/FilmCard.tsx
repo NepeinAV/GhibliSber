@@ -1,8 +1,8 @@
-import React, { FC, memo } from 'react';
+import React, { FC, memo, useState } from 'react';
 
 import color from 'color';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import styled, { useTheme } from 'styled-components/native';
+import styled, { css, useTheme } from 'styled-components/native';
 
 import { Film } from '../../services/films';
 
@@ -11,6 +11,7 @@ import Card from '../../ui/Card';
 import Pressable from '../../ui/Pressable';
 import Spacer from '../../ui/Spacer';
 import Typography from '../../ui/Typography';
+import ShowMoreText from '../../ui/ShowMoreText';
 
 type FilmCardProps = {
     film: Film;
@@ -31,14 +32,28 @@ const FilmMetaContainer = styled(Box)`
 `;
 
 const FilmCard: FC<FilmCardProps> = ({ film }) => {
+    const [isTextExpanded, setTextExpanded] = useState(false);
+
     const theme = useTheme();
 
+    const renderShowMoreButton = () =>
+        isTextExpanded ? null : (
+            <>
+                <Spacer height={theme.indents.margin / 4} />
+                <Pressable onPress={() => setTextExpanded(prev => !prev)}>
+                    <Typography
+                        css={css`
+                            font-weight: 700;
+                        `}
+                    >
+                        Показать ещё...
+                    </Typography>
+                </Pressable>
+            </>
+        );
+
     return (
-        <Pressable
-            onPress={() => {
-                console.log(film);
-            }}
-        >
+        <Pressable>
             <Card>
                 <Typography type="title">{film.title}</Typography>
 
@@ -56,7 +71,13 @@ const FilmCard: FC<FilmCardProps> = ({ film }) => {
 
                 <Spacer height={theme.indents.margin / 2} />
 
-                <Typography>{film.description}</Typography>
+                <ShowMoreText
+                    numOfLines={3}
+                    isTextExpanded={isTextExpanded}
+                    renderShowMoreButton={renderShowMoreButton}
+                >
+                    {film.description}
+                </ShowMoreText>
             </Card>
         </Pressable>
     );
