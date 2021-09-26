@@ -8,19 +8,25 @@ type BackdropProps = {
     isSheetOpen: boolean;
 };
 
+const styles = StyleSheet.create({
+    backdrop: {
+        ...StyleSheet.absoluteFillObject,
+        backgroundColor: 'rgba(0, 0, 0, 0.2)',
+    },
+});
+
 const Backdrop: FC<BackdropProps> = ({ bottomSheetAnimatedNode, isSheetOpen }) => {
     return (
         <Animated.View
             pointerEvents={isSheetOpen ? 'auto' : 'none'}
             style={[
                 {
-                    backgroundColor: 'rgba(0, 0, 0, 0.2)',
                     opacity: Animated.interpolate(bottomSheetAnimatedNode, {
                         inputRange: [0, 1],
                         outputRange: [1, 0],
                     }),
                 },
-                StyleSheet.absoluteFillObject,
+                styles.backdrop,
             ]}
         />
     );

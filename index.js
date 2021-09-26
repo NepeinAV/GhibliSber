@@ -6,13 +6,8 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 
 import { Favorites as FavoritesScreen, Films as FilmsScreen } from './src/screens';
 
-export enum NavigationScreen {
-    Films = 'FILMS_SCREEN',
-    Favorites = 'FAVORITES_SCREEN',
-}
-
-Navigation.registerComponent(NavigationScreen.Films, () => gestureHandlerRootHOC(FilmsScreen));
-Navigation.registerComponent(NavigationScreen.Favorites, () => gestureHandlerRootHOC(FavoritesScreen));
+Navigation.registerComponent('FILMS_SCREEN', () => gestureHandlerRootHOC(FilmsScreen));
+Navigation.registerComponent('FAVORITES_SCREEN', () => gestureHandlerRootHOC(FavoritesScreen));
 
 Navigation.setDefaultOptions({
     topBar: {
@@ -37,7 +32,7 @@ Navigation.events().registerAppLaunchedListener(() => {
                             children: [
                                 {
                                     component: {
-                                        name: NavigationScreen.Films,
+                                        name: 'FILMS_SCREEN',
                                         options: { topBar: { title: { text: 'Фильмы' } } },
                                     },
                                 },
@@ -55,7 +50,7 @@ Navigation.events().registerAppLaunchedListener(() => {
                             children: [
                                 {
                                     component: {
-                                        name: NavigationScreen.Favorites,
+                                        name: 'FAVORITES_SCREEN',
                                         options: { topBar: { title: { text: 'Избранное' } } },
                                     },
                                 },

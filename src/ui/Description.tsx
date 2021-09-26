@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 
-import { css, useTheme } from 'styled-components/native';
+import styled, { useTheme } from 'styled-components/native';
 
 import Box from './Box';
 import Spacer from './Spacer';
@@ -10,27 +10,25 @@ type DescriptionProps = {
     title: string;
 };
 
+const Container = styled(Box)`
+    flex-direction: row;
+`;
+
+const Title = styled(Typography)`
+    font-weight: 700;
+`;
+
 const Description: FC<DescriptionProps> = ({ children, title }) => {
     const theme = useTheme();
 
     return (
-        <Box
-            css={css`
-                flex-direction: row;
-            `}
-        >
-            <Typography
-                css={css`
-                    font-weight: 700;
-                `}
-            >
-                {title}:
-            </Typography>
+        <Container>
+            <Title>{title}:</Title>
 
             <Spacer width={theme.indents.margin / 4} />
 
             <Typography>{children}</Typography>
-        </Box>
+        </Container>
     );
 };
 

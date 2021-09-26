@@ -1,6 +1,8 @@
 import React, { FC, ReactNode, useCallback, useState } from 'react';
 import { NativeSyntheticEvent, ScrollView, TextLayoutEventData } from 'react-native';
+
 import { css } from 'styled-components/native';
+
 import Typography from './Typography';
 
 type ShowMoreTextProps = {

@@ -1,12 +1,14 @@
 import React from 'react';
 import { FlatList, ListRenderItemInfo } from 'react-native';
-import { useSelector } from 'react-redux';
 
+
+import { useSelector } from 'react-redux';
 import { compose } from 'redux';
 import styled, { useTheme } from 'styled-components/native';
 
 import { Film } from '../../services/films';
 import { selectFavoriteFilms } from '../../store/slices/favoriteFilmsSlice';
+import FilmBottomSheet from '../films/FilmBottomSheet';
 
 import withReduxProvider from '../../store/withReduxProvider';
 import withThemeProvider from '../../theme/withThemeProvider';
@@ -24,13 +26,15 @@ const Favorites = () => {
     const theme = useTheme();
 
     return (
-        <FlatList
-            data={films}
-            keyExtractor={extractFilmId}
-            renderItem={renderItem}
-            contentContainerStyle={{ padding: theme.indents.padding }}
-            ItemSeparatorComponent={ItemSeparator}
-        />
+        <FilmBottomSheet>
+            <FlatList
+                data={films}
+                keyExtractor={extractFilmId}
+                renderItem={renderItem}
+                contentContainerStyle={{ padding: theme.indents.padding }}
+                ItemSeparatorComponent={ItemSeparator}
+            />
+        </FilmBottomSheet>
     );
 };
 
